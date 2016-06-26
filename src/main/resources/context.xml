@@ -2,22 +2,28 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--default-lazy-init="true"-->
+<!--default-init-method="initObject"-->
+<!--default-destroy-method="destroyObject"-->
 
-    <bean id="t1000" class="Robot.ModelT1000" name="t1000">
-        <!--<constructor-arg ref="sonyHand"/>-->
-        <!--<constructor-arg ref="sonyLeg"/>-->
-        <!--<constructor-arg ref="sonyHead"/>-->
-        <!--<property name="hand" ref="sonyHand"/>-->
+<!--<bean class="MyBeanPostProcessor" id="myBeanPostProcessor" name="myBeanPostProcessor2"/>-->
+
+    <!--Конструктор-->
+    <bean id="t1000" class="Robot.ModelT1000" name="t1000" scope="prototype" lazy-init="true">
+        <constructor-arg index="0" value="silver" type="java.lang.String"/>
+        <constructor-arg index="1" value="2006" type="int"/>
+        <constructor-arg index="2" value="true" type="boolean"/>
         <property name="hand" ref="toshibaHand"/>
         <property name="leg" ref="toshibaLeg"/>
         <property name="head" ref="toshibaHead"/>
     </bean>
+    <!--Конструктор-->
+    <bean id="t1000Empty" class="Robot.ModelT1000" name="t1000Empty" lazy-init="true">
+        <constructor-arg ref="sonyHand"/>
+        <constructor-arg ref="sonyLeg"/>
+        <constructor-arg ref="toshibaHead"/>
+    </bean>
 
 
-    <bean id="sonyHand" class="sony.SonyHand" name="sonyHand"/>
-    <bean id="sonyHead" class="sony.SonyHead" name="sonyHead"/>
-    <bean id="sonyLeg" class="sony.SonyLeg" name="sonyLeg"/>
-    <bean id="toshibaHand" class="toshiba.ToshibaHand" name="toshibaHand"/>
-    <bean id="toshibaHead" class="toshiba.ToshibaHead" name="toshibaHead"/>
-    <bean id="toshibaLeg" class="toshiba.ToshibaLeg" name="toshibaLeg"/>
+
 </beans>
