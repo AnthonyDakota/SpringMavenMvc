@@ -9,7 +9,7 @@ public class Start {
         //  Object obj =  context.getBean("t1000");
 //        if (obj instanceof Robot.ModelT1000) {
        ModelT1000 t1000 = (ModelT1000) context.getBean("t1000");
-//              System.out.println(t1000.getHead());
+         System.out.println(t1000.getHead());
 ////            t1000.action();
 ////            t1000 = (ModelT1000) context.getBean("t1000");
 ////            System.out.println(t1000.getHead());
